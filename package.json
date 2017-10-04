@@ -6,6 +6,7 @@
     "build-release": "rm -rf ./docker/public && cp -R ./build/public ./docker/public/ && docker build --rm --file ./docker/Dockerfile --tag=\"react-first:prod\" ./docker/",
     "test": "jest",
     "test:update": "jest -u"
+    "test:coverage": "jest --coverage",
   },
   "name": "react-first",
   "version": "1.0.0",
