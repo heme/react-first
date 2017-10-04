@@ -4,8 +4,8 @@
     "lint": "eslint **/*.{js,jsx} --quiet",
     "build": "webpack",
     "build-release": "rm -rf ./docker/public && cp -R ./build/public ./docker/public/ && docker build --rm --file ./docker/Dockerfile --tag=\"react-first:prod\" ./docker/",
-    "test": "NODE_ENV=test jest",
-    "test:update": "NODE_ENV=test jest -u"
+    "test": "jest",
+    "test:update": "jest -u"
   },
   "name": "react-first",
   "version": "1.0.0",
@@ -13,6 +13,11 @@
   "author": "heme",
   "license": "UNLICENSED",
   "private": true,
+  "jest": {
+    "snapshotSerializers": [
+      "jest-serializer-enzyme"
+    ]
+  },
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
@@ -30,6 +35,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "enzyme": "2.9.1",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^2.6.0",
@@ -42,6 +48,7 @@
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
+    "jest-serializer-enzyme": "^1.0.0",
     "prettier": "^1.7.4",
     "react-test-renderer": "^16.0.0",
     "webpack": "^3.6.0"
